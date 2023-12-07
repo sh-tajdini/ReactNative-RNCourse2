@@ -1,6 +1,6 @@
 import { FlatList,Text } from "react-native";
 
-function renderExpenseItem({itemData}) {
+function renderExpenseItem(itemData) {
     return <Text>{itemData.item.description}</Text>
 }
 
