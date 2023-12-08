@@ -46,6 +46,7 @@ function ExpensesOutput({expenses,expensesPeriod}) {
   );
 }
 
+
 export default ExpensesOutput;
 
 const styles = StyleSheet.create({
