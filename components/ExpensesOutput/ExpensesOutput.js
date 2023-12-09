@@ -45,7 +45,7 @@ function ExpensesOutput({expenses,expensesPeriod}) {
   </View>
   );
 }
-
+//
 
 export default ExpensesOutput;
 
