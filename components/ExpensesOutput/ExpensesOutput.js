@@ -36,7 +36,7 @@ const DUMMY_EXPENSES = [
             },
 
     ];
-
+//
 function ExpensesOutput({expenses,expensesPeriod}) {
   return (
   <View style={styles.container}>
