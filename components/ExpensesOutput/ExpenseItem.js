@@ -1,6 +1,6 @@
 import { Pressable,View,Text,StyleSheet } from "react-native";
 import{ GlobalStyles } from '../../constants/styles';
-import { getFormattedDate } from '../../utils/dateUtils';
+import { getFormattedDate } from '../../util/date';
 
 
 function ExpenseItem({description,amount,date}){
