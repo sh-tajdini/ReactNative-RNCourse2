@@ -115,8 +115,13 @@ function ExpenseContextProvider({children}){
             payload: {id:id, data:expenseData},
         });
     }
-
-    return  <ExpenseContext.Provider>
+const value = {
+    expenses: expensesState,
+    addExpense: addExpense,
+    deleteExpense: deleteExpense,
+    updateExpense: updateExpense,
+};
+    return  <ExpenseContext.Provider value={value}>
             {children}
              </ExpenseContext.Provider>
 }
