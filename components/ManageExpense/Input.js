@@ -4,12 +4,12 @@ function Input({label,textInputConfig}){
 
     const inputStyles = [styles.input];
     if(textInputConfig && textInputConfig.multiline){
-        inputStyles.push(styles.inputAlignVertical);
+        inputStyles.push(styles.inputMultiline);
     }
     return (
     <View style={styles.inputContainer}>
         <Text style={styles.label}>{label}</Text>
-        <TextInput style={styles.inputStyles} {...textInputConfig}/>
+        <TextInput style={inputStyles} {...textInputConfig}/>
     </View>
     );
 }
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
          borderRadius:6,
          fontSize:18,
     },
-    inputAlignVertical:{
+    inputMultiline:{
         minHeight:100,
         textAlignVertical:'top',
     }
