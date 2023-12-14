@@ -2,7 +2,6 @@ import {View,StyleSheet,Text} from 'react-native';
 import Input from './Input';
 function ExpenseForm(){
     function amountChangeHandler(){
-
     }
     return (
     <View style={styles.form}>
