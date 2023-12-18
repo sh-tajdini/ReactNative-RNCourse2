@@ -3,6 +3,7 @@ import {View,StyleSheet,Text,Alert} from 'react-native';
 import Input from './Input';
 import Button from '../UI/Button';
 import { getFormattedDate } from '../../util/date';
+import { GlobalStyles } from '../../constants/styles';
 function ExpenseForm({ submitButtonLabel,onCancel,onSubmit,defaultValues}){
 
     const [inputs,setInputs] = useState({
@@ -65,7 +66,9 @@ function ExpenseForm({ submitButtonLabel,onCancel,onSubmit,defaultValues}){
         <View style={styles.inputsRow}>
         <Input 
         style={styles.rowInput}
-        label="Amount" textInputConfig={{
+        label="Amount" 
+        invalid={!inputs.amount.isValid}
+        textInputConfig={{
             keyboardType:'decimal-pad',
             onChangeText:inputChangeHandler.bind(this,'amount'),
             value:inputs.amount.value,
@@ -74,6 +77,7 @@ function ExpenseForm({ submitButtonLabel,onCancel,onSubmit,defaultValues}){
         <Input 
         style={styles.rowInput}
         label="Date" 
+        invalid={!inputs.date.isValid}
         textInputConfig={{
             placeholder:'YYYY-MM-DD',
             maxLength:10,
@@ -82,7 +86,9 @@ function ExpenseForm({ submitButtonLabel,onCancel,onSubmit,defaultValues}){
         }}/>
         
         </View>
-        <Input label="Description" textInputConfig={{
+        <Input label="Description" 
+        invalid={!inputs.description.isValid}
+        textInputConfig={{
             multiline:true,
            // autoCapitalize:'none',
            //autoCorrect:false, //default is 
@@ -90,7 +96,9 @@ function ExpenseForm({ submitButtonLabel,onCancel,onSubmit,defaultValues}){
             value:inputs.description.value,
         }}/>
       {formIsInvalid && 
-      <Text>Invalid input values - please check your entered data!</Text>}
+      <Text style={styles.errorText}>
+        Invalid input values - please check your entered data!
+        </Text>}
 
             <View style={styles.buttons}>
                 <Button style={styles.button} mode="flat" onPress={onCancel}>
@@ -124,6 +132,11 @@ const styles = StyleSheet.create({
     rowInput:{
         flex:1,
     },
+    errorText:{
+        textAlign:'center',
+        color:GlobalStyles.colors.error500,
+        margin:8,
+    },
     buttons:{
         flexDirection: 'row',
         justifyContent: 'center',
@@ -133,4 +146,5 @@ const styles = StyleSheet.create({
         minWidth: 120,
         marginHorizontal: 8,
     },
+
   });
