@@ -11,7 +11,6 @@ export async function storeExpense(expenseData) {
         return id;
 
 }
-
 export async function fetchExpenses() {
     const response = await axios.get(
         BACKEND_URL+'/expenses.json'
